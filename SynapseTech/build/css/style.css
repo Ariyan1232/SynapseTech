@@ -546,6 +546,10 @@ video {
   border-width: 0;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -581,6 +585,10 @@ video {
 
 .right-0 {
   right: 0px;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .z-10 {
@@ -642,6 +650,10 @@ video {
 
 .w-auto {
   width: auto;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .max-w-7xl {
@@ -860,10 +872,12 @@ video {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+/* Background CSS */
+
 html {
   height: 100%;
   overflow: hidden;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
+  background: #1b2735;
 }
 
 /*
@@ -1455,6 +1469,25 @@ html {
   }
 }
 
+/* Navigation Bar CSS */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  /* Adjust z-index as needed */
+}
+
+.wrapper {
+  margin-top: 4rem;
+  /* Adjust the margin to accommodate the fixed navbar */
+}
+
 .hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
@@ -1538,4 +1571,3 @@ html {
     padding-right: 2rem;
   }
 }
-
