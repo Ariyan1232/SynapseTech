@@ -7,7 +7,7 @@ html {
     overflow: hidden;
     background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
 }
-
+/*
 #title {
     position: absolute;
     top: 50%;
@@ -22,7 +22,7 @@ html {
     margin-top: -60px;
     padding-left: 10px;
 }
-
+*/
 #title span {
     background: -webkit-linear-gradient(white, #38495a);
     -webkit-background-clip: text;
