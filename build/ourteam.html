@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .team-section-container {
+        position: relative;
+        z-index: 2; /* Set a higher z-index to place the team section above the stars */
+    }
+    </style>
+</head>
+<body>
+    <section class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="title">
+            <!--NAVIGATION BAR CODE-->
+            <nav class="bg-gray-800 fixed top-0 w-full">
+                <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                    <div class="relative flex h-16 items-center justify-between">
+                      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                        <!-- Mobile menu button-->
+                        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                          <span class="absolute -inset-0.5"></span>
+                          <span class="sr-only">Open main menu</span>
+                          <!--
+                            Icon when menu is closed.
+                
+                            Menu open: "hidden", Menu closed: "block"
+                          -->
+                          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                          </svg>
+                          <!--
+                            Icon when menu is open.
+                
+                            Menu open: "block", Menu closed: "hidden"
+                          -->
+                          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                        <div class="flex flex-shrink-0 items-center">
+                          <a href="index.html"><img class="h-8 w-auto" src="logo.png" alt="Your Company"></a>
+                        </div>
+                        <div class="hidden sm:ml-6 sm:block">
+                          <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="ourteam.html" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Our Team</a>
+                            <a href="plenaries.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Plenaries</a>
+                            <a href="schedule.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Schedule</a>
+                            <a href="contacts.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact Us</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                          <span class="absolute -inset-1.5"></span>
+                          <span class="sr-only">View notifications</span>
+                          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                          </svg>
+                        </button>
+                
+                        <!-- Profile dropdown -->
+                        <div class="relative ml-3">
+                          <div>
+                            <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                              <span class="absolute -inset-1.5"></span>
+                              <span class="sr-only">Open user menu</span>
+                              <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                            </button>
+                          </div>
+                
+                          <!--
+                            Dropdown menu, show/hide based on menu state.
+                
+                            Entering: "transition ease-out duration-100"
+                              From: "transform opacity-0 scale-95"
+                              To: "transform opacity-100 scale-100"
+                            Leaving: "transition ease-in duration-75"
+                              From: "transform opacity-100 scale-100"
+                              To: "transform opacity-0 scale-95"
+                          -->
+                          <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <!-- Active: "bg-gray-100", Not Active: "" -->
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Mobile menu, show/hide based on menu state. -->
+                  <div class="sm:hidden" id="mobile-menu">
+                    <div class="space-y-1 px-2 pb-3 pt-2">
+                      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                      <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
+                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+                      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+                    </div>
+                  </div>
+            </nav>
+            <!--Meet The Team Cards (Co Chairs)-->
+            <div class="team-section-container">
+            <section class="dark:bg-gray-850">
+                <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+                    <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our team</h2>
+                        <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Meet the Wonderful Team Behind the Synapse Conference</p>
+                    </div> 
+                    <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto mt-8">
+                        <div class="text-center text-gray-500 dark:text-gray-400">
+                            <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="WilsonLi.jpg" alt="Bonnie Avatar" >
+                            <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                <a href="#">Wilson Li</a>
+                            </h3>
+                            <p>Co-Chair</p>
+                            <ul class="flex justify-center mt-4 space-x-4"> 
+                                <li>
+                                    <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text-center text-gray-500 dark:text-gray-400">
+                            <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="CarolRong.PNG" alt="Helene Avatar">
+                            <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                <a href="#">Carol Rong</a>
+                            </h3>
+                            <p>Co-Chair</p>
+                            <ul class="flex justify-center mt-4 space-x-4">
+                                <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                    <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                        <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                        <path d="M3 5.012H0V15h3V5.012Z"/>
+                                      </svg>          
+                                </a>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!--Meet The Team Cards (Technology)-->
+            <div class="team-section-container">
+                <section class="dark:bg-gray-850">
+                    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+                        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+                            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Technology Team</h2>
+                            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Meet the Wonderful Team Behind the Synapse Conference</p>
+                        </div> 
+                        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto mt-8">
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="VictoriaLu.JPG" alt="Bonnie Avatar" >
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Victoria Lu</a>
+                                </h3>
+                                <p>Head of Technology</p>
+                                <ul class="flex justify-center mt-4 space-x-4"> 
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                                <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                                <path d="M3 5.012H0V15h3V5.012Z"/>
+                                              </svg>          
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="logo.png" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Ariyan Nagratha</a>
+                                </h3>
+                                <p>Technology Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-35 h-35 rounded-lg" src="AryaPatil.png" alt="Bonnie Avatar" >
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Arya Patil</a>
+                                </h3>
+                                <p>Technology Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4"> 
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                                <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                                <path d="M3 5.012H0V15h3V5.012Z"/>
+                                              </svg>          
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!--Meet The Team Cards (Outreach Team)-->
+            <div class="team-section-container">
+                <section class="dark:bg-gray-850">
+                    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+                        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+                            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Outreach Team</h2>
+                            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Meet the Wonderful Team Behind the Synapse Conference</p>
+                        </div> 
+                        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto mt-8">
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Lily Zheng.jpg" alt="Bonnie Avatar" >
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Lily Zheng</a>
+                                </h3>
+                                <p>Head of Outreach</p>
+                                <ul class="flex justify-center mt-4 space-x-4"> 
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                                <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                                <path d="M3 5.012H0V15h3V5.012Z"/>
+                                              </svg>          
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Rita Ye.JPG" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Rita Ye</a>
+                                </h3>
+                                <p>Outreach Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                 <!--Meet The Team Cards (Graphic Team)-->
+            <div class="team-section-container">
+                <section class="dark:bg-gray-850">
+                    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+                        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+                            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Graphic Design Team</h2>
+                            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Meet the Wonderful Team Behind the Synapse Conference</p>
+                        </div> 
+                        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto mt-8">
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Yunkai Shi.jpg" alt="Bonnie Avatar" >
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Yunkai Shi</a>
+                                </h3>
+                                <p>Head of Design</p>
+                                <ul class="flex justify-center mt-4 space-x-4"> 
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                                <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                                <path d="M3 5.012H0V15h3V5.012Z"/>
+                                              </svg>          
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Elise Su.JPG" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Elise Su</a>
+                                </h3>
+                                <p>Head of Design</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Michael Chen.jpeg" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Michael Chen</a>
+                                </h3>
+                                <p>Design Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="logo.png" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Harrison Shiu</a>
+                                </h3>
+                                <p>Design Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!--Meet The Team Cards (Productions)-->
+            <div class="team-section-container">
+                <section class="dark:bg-gray-850">
+                    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+                        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+                            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Productions Team</h2>
+                            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Meet the Wonderful Team Behind the Synapse Conference</p>
+                        </div> 
+                        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto mt-8">
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Austen Chen Small.jpg" alt="Bonnie Avatar" >
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Austen Chen</a>
+                                </h3>
+                                <p>Head of Productions</p>
+                                <ul class="flex justify-center mt-4 space-x-4"> 
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                                <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                                <path d="M3 5.012H0V15h3V5.012Z"/>
+                                              </svg>          
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="John Xu.jpg" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">John Xu</a>
+                                </h3>
+                                <p>Productions Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="IMG_4516.PNG" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Alex Genkov</a>
+                                </h3>
+                                <p>Productions Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Lingyi Chen.png" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Lingyi Chen</a>
+                                </h3>
+                                <p>Productions Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                            <!--Meet The Team Cards (Keynote | Finance)-->
+            <div class="team-section-container">
+                <section class="dark:bg-gray-850">
+                    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+                        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+                            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Finance | Keynote Speaker</h2>
+                            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Meet the Wonderful Team Behind the Synapse Conference</p>
+                        </div> 
+                        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto mt-8">
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Alex Chen .png" alt="Bonnie Avatar" >
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Alex Chen</a>
+                                </h3>
+                                <p>Head of Finance</p>
+                                <ul class="flex justify-center mt-4 space-x-4"> 
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                                <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                                <path d="M3 5.012H0V15h3V5.012Z"/>
+                                              </svg>          
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Joanna Mu.JPG" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Joanna Mu</a>
+                                </h3>
+                                <p>Head of Keynote Speaker</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                 <!--Meet The Team Cards (Plenaries)-->
+            <div class="team-section-container">
+                <section class="dark:bg-gray-850">
+                    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+                        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+                            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Plenaries Team</h2>
+                            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Meet the Wonderful Team Behind the Synapse Conference</p>
+                        </div> 
+                        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto mt-8">
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Dean Kiyingi.jpeg" alt="Bonnie Avatar" >
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Dean Kiyingi</a>
+                                </h3>
+                                <p>Head of Plenaries</p>
+                                <ul class="flex justify-center mt-4 space-x-4"> 
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                                <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                                <path d="M3 5.012H0V15h3V5.012Z"/>
+                                              </svg>          
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Frank Ni.jpg" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Frank Ni</a>
+                                </h3>
+                                <p>Plenaries Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="MatthewTong.jpg.png" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Matthew Tong</a>
+                                </h3>
+                                <p>Plenaries Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Arslan Khudayar.jpg" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Arslan Khudayar</a>
+                                </h3>
+                                <p>Plenaries Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Max Peng.JPG" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Max Peng</a>
+                                </h3>
+                                <p>Plenaries Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Richard Li.jpeg" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Richard Li</a>
+                                </h3>
+                                <p>Plenaries Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+
+                            <!--Meet The Team Cards (Logistics)-->
+            <div class="team-section-container">
+                <section class="dark:bg-gray-850">
+                    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+                        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+                            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Logistics Team</h2>
+                            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Meet the Wonderful Team Behind the Synapse Conference</p>
+                        </div> 
+                        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto mt-8">
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Malek Elhaddad.jpeg" alt="Bonnie Avatar" >
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Malek Elhaddad</a>
+                                </h3>
+                                <p>Head of Logistics</p>
+                                <ul class="flex justify-center mt-4 space-x-4"> 
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                                <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                                <path d="M3 5.012H0V15h3V5.012Z"/>
+                                              </svg>          
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="logo.png" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Megan Kwan</a>
+                                </h3>
+                                <p>Logistics Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="logo.png" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Andy Yu</a>
+                                </h3>
+                                <p>Logistics Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!--Meet The Team Cards (In Person Events)-->
+            <div class="team-section-container">
+                <section class="dark:bg-gray-850">
+                    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+                        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+                            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">In Person Events Team</h2>
+                            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Meet the Wonderful Team Behind the Synapse Conference</p>
+                        </div> 
+                        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto mt-8">
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="mary.png" alt="Bonnie Avatar" >
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Mary Mei</a>
+                                </h3>
+                                <p>Head of Events</p>
+                                <ul class="flex justify-center mt-4 space-x-4"> 
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/wilson-li-777658229/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                                <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                                <path d="M3 5.012H0V15h3V5.012Z"/>
+                                              </svg>          
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="logo.png" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Will Yang</a>
+                                </h3>
+                                <p>Events Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            <div class="text-center text-gray-500 dark:text-gray-400">
+                                <img class="mx-auto mb-4 w-45 h-45 rounded-lg" src="Nina Zhang.jpg" alt="Helene Avatar">
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <a href="#">Nina Zhang</a>
+                                </h3>
+                                <p>Events Exec</p>
+                                <ul class="flex justify-center mt-4 space-x-4">
+                                    <a href="https://www.linkedin.com/in/carolrong/" class="text-[#0077B5] hover:text-gray-900 dark:hover:text-white">
+                                        <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                                            <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                                            <path d="M3 5.012H0V15h3V5.012Z"/>
+                                          </svg>          
+                                    </a>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js">
+
+    </script>
+</body>
+</html>
